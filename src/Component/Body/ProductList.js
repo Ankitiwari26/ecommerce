@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useCart } from "../Store/CartProvider";
 
-const productsArr = [
+const products = [
   {
     title: "Colors",
     description:
@@ -34,16 +35,20 @@ const productsArr = [
 ];
 
 function ProductList() {
+  const { addToCart } = useCart();
+
   return (
     <div className="d-flex flex-wrap justify-content-around">
-      {productsArr.map((product, index) => (
+      {products.map((product, index) => (
         <Card key={index} style={{ width: "18rem", margin: "10px" }}>
           <Card.Img variant="top" src={product.imageUrl} />
           <Card.Body>
             <Card.Title>{product.title}</Card.Title>
             <Card.Text>{product.description}</Card.Text>
             <Card.Text>Price: ${product.price}</Card.Text>
-            <Button variant="primary">Add to Cart</Button>
+            <Button variant="primary" onClick={() => addToCart(product)}>
+              Add to Cart
+            </Button>
           </Card.Body>
         </Card>
       ))}

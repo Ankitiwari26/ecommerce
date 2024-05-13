@@ -4,10 +4,22 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import ModalUI from "../../UI/ModalUI";
 import { useState } from "react";
+import { useContext } from "react";
+import { useCart } from "../Store/CartProvider";
+// import CartContext from "../Store/cart-context";
 
-const numberOfCartItem = 5;
+// const numberOfCartItem = 5;
 function Header() {
+  // const cartCtxt = useContext(CartContext);
+
+  const { cartContext } = useCart();
+
   const [modalShow, setModalShow] = useState(false);
+
+  const numberOfCartItem = cartContext?.cartItems
+    ? cartContext?.cartItems?.length
+    : 0;
+  console.log(numberOfCartItem, "prateek");
 
   const handleCartButtonClick = () => {
     setModalShow(true);
@@ -35,6 +47,7 @@ function Header() {
                 onClick={handleCartButtonClick}
               >
                 <h4>Cart</h4>
+                {/* <span>{cartCtxt.message}</span> */}
                 <div className="item_count">{numberOfCartItem}</div>
               </Button>
             </Nav>
