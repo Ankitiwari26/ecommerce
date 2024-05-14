@@ -1,12 +1,34 @@
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+
+import "./AboutPage.css";
 const AboutPage = () => {
   return (
-    <>
-      <div className="headingTitle">
-        <h1>The Shoper's</h1>
+    <div className="about">
+      <div className="aboutHeader">
+        <>
+          <Navbar expand="lg" className="bg-body-tertiary">
+            <Container>
+              <Navbar.Brand href="#home">Ecommerce Website</Navbar.Brand>
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                  <Nav.Link href="#home">Home</Nav.Link>
+                  <Nav.Link href="#link">Store</Nav.Link>
+                  <Nav.Link href="#link">About</Nav.Link>
+                </Nav>
+              </Navbar.Collapse>
+            </Container>
+          </Navbar>
+        </>
       </div>
-      <div>
-        <h2>About</h2>
-        <p>
+      <div className="headingTitle">
+        <h1 className="heading">The Shoper's</h1>
+      </div>
+      <div className="about">
+        <h2 className="aboutTitle">About</h2>
+        <p className="description">
           Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of
           sorrows, hates no prosecutors will unfold in the enduring of which
           were born in it? Often leads smallest mistake some pain main
@@ -29,15 +51,15 @@ const AboutPage = () => {
           once take the hardships of the life of harsh condemn, we are accusing
           him? Him whom something large cisterns.
         </p>
-        <div className="footer">
-          <h1>The Shoper's</h1>
-          <div className="socialmedia">
-            <a href="https://www.youtube.com/@SharpenerTech">YouTube</a>
-            <a href="https://en.wikipedia.org/wiki/India">WikiPedia</a>
-          </div>
+      </div>
+      <div className="footer">
+        <h1>The Shoper's</h1>
+        <div className="socialmedia">
+          <a href="https://www.youtube.com/@SharpenerTech">YouTube</a>
+          <a href="https://en.wikipedia.org/wiki/India">WikiPedia</a>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default AboutPage;
