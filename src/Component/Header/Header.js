@@ -41,6 +41,8 @@ function Header() {
               <Nav.Link href="#home">Home</Nav.Link>
               <Nav.Link href="#link">Store</Nav.Link>
               <Nav.Link href="#link">About</Nav.Link>
+              <Nav.Link href="#link">Contact Us</Nav.Link>
+
               <Button
                 variant="dark"
                 className="cartbutton"
