@@ -6,6 +6,7 @@ import ModalUI from "../../UI/ModalUI";
 import { useState } from "react";
 import { useContext } from "react";
 import { useCart } from "../Store/CartProvider";
+import { Link } from "react-router-dom";
 // import CartContext from "../Store/cart-context";
 
 // const numberOfCartItem = 5;
@@ -38,10 +39,18 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Store</Nav.Link>
-              <Nav.Link href="#link">About</Nav.Link>
-              <Nav.Link href="#link">Contact Us</Nav.Link>
+              <Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/store">
+                Store
+              </Nav.Link>
+              <Nav.Link as={Link} to="/about">
+                About
+              </Nav.Link>
+              <Nav.Link as={Link} to="/contactUS">
+                Contact Us
+              </Nav.Link>
 
               <Button
                 variant="dark"

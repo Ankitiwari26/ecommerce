@@ -7,9 +7,9 @@ import Home from "./Pages/Home";
 import ContactUs from "./Pages/ContactUs";
 
 const router = createBrowserRouter([
-  { path: "/", element: <Store /> },
+  { path: "/store", element: <Store /> },
   { path: "/about", element: <About /> },
-  { path: "/home", element: <Home /> },
+  { path: "/", element: <Home /> },
   { path: "/contactUs", element: <ContactUs /> },
 ]);
 

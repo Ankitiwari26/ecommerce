@@ -2,6 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useCart } from "../Store/CartProvider";
+import Header from "../Header/Header";
 
 const products = [
   {
@@ -38,20 +39,22 @@ function ProductList() {
   const { addToCart } = useCart();
 
   return (
-    <div className="d-flex flex-wrap justify-content-around">
-      {products.map((product, index) => (
-        <Card key={index} style={{ width: "18rem", margin: "10px" }}>
-          <Card.Img variant="top" src={product.imageUrl} />
-          <Card.Body>
-            <Card.Title>{product.title}</Card.Title>
-            <Card.Text>{product.description}</Card.Text>
-            <Card.Text>Price: ${product.price}</Card.Text>
-            <Button variant="primary" onClick={() => addToCart(product)}>
-              Add to Cart
-            </Button>
-          </Card.Body>
-        </Card>
-      ))}
+    <div>
+      <div className="d-flex flex-wrap justify-content-around">
+        {products.map((product, index) => (
+          <Card key={index} style={{ width: "18rem", margin: "10px" }}>
+            <Card.Img variant="top" src={product.imageUrl} />
+            <Card.Body>
+              <Card.Title>{product.title}</Card.Title>
+              <Card.Text>{product.description}</Card.Text>
+              <Card.Text>Price: ${product.price}</Card.Text>
+              <Button variant="primary" onClick={() => addToCart(product)}>
+                Add to Cart
+              </Button>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 }

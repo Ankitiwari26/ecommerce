@@ -4,6 +4,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Header from "../Header/Header";
 
 const HomePage = () => {
   const scheduleArr = [
@@ -23,23 +24,8 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="aboutHeader">
-        <>
-          <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
-              <Navbar.Brand href="#home">Ecommerce Website</Navbar.Brand>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                  <Nav.Link href="#home">Home</Nav.Link>
-                  <Nav.Link href="#link">Store</Nav.Link>
-                  <Nav.Link href="#link">About</Nav.Link>
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
-        </>
-      </div>
+      <Header />
+      <div className="aboutHeader"></div>
       <div className="headingTitle">
         <h1>The Shoper's</h1>
       </div>
