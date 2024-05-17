@@ -51,6 +51,9 @@ function Header() {
               <Nav.Link as={Link} to="/contactUS">
                 Contact Us
               </Nav.Link>
+              <Nav.Link as={Link} to="/auth">
+                Sign Up
+              </Nav.Link>
 
               <Button
                 variant="dark"

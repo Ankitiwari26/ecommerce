@@ -1,0 +1,49 @@
+.product-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .product-description {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .product-price {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .product-images {
+    margin-bottom: 20px;
+  }
+  
+  .product-images img {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+  }
+  
+  .product-reviews {
+    margin-top: 20px;
+  }
+  
+  .product-review {
+    margin-bottom: 10px;
+  }
+  
+  .product-review p {
+    margin-bottom: 5px;
+  }
+  
+  .product-review-rating {
+    font-weight: bold;
+  }
+  

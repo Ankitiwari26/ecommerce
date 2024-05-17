@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useCart } from "../Store/CartProvider";
 import Header from "../Header/Header";
+import { NavLink } from "react-router-dom";
 
 const products = [
   {
@@ -35,7 +36,7 @@ const products = [
   },
 ];
 
-function ProductList() {
+const ProductList = () => {
   const { addToCart } = useCart();
 
   return (
@@ -45,9 +46,15 @@ function ProductList() {
           <Card key={index} style={{ width: "18rem", margin: "10px" }}>
             <Card.Img variant="top" src={product.imageUrl} />
             <Card.Body>
-              <Card.Title>{product.title}</Card.Title>
-              <Card.Text>{product.description}</Card.Text>
-              <Card.Text>Price: ${product.price}</Card.Text>
+              <NavLink to={`/product-detail/${index}`}>
+                <Card.Title>{product.title}</Card.Title>
+              </NavLink>
+              <NavLink to={`/product-detail/${index}`}>
+                <Card.Text>{product.description}</Card.Text>
+              </NavLink>
+              <NavLink to={`/product-detail/${index}`}>
+                <Card.Text>Price: ${product.price}</Card.Text>
+              </NavLink>
               <Button variant="primary" onClick={() => addToCart(product)}>
                 Add to Cart
               </Button>
@@ -57,6 +64,5 @@ function ProductList() {
       </div>
     </div>
   );
-}
-
+};
 export default ProductList;

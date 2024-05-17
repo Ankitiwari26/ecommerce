@@ -24,6 +24,7 @@ const ContactUs = () => {
           };
         });
         setContact(transformedContact);
+        console.log(transformedContact);
         setLoading(false);
       })
       .catch((error) => {
