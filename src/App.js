@@ -7,6 +7,7 @@ import Home from "./Pages/Home";
 import ContactUs from "./Pages/ContactUs";
 import ProductDetail from "./Component/Body/ProductDetails";
 import Auth from "./Pages/Auth";
+import AuthSignIn from "./Pages/AuthSignIn";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             element={<ProductDetail />}
           />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/signin" element={<AuthSignIn />} />
         </Routes>
       </Router>
     </>
