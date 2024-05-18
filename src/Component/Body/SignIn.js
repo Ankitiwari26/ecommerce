@@ -5,12 +5,15 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
-import "./Authentication.css"; // Import your CSS file
+import { Link } from "react-router-dom";
+import "./Authentication.css";
+import { useAuth } from "../Store/auth-coontext";
 
 const SignIn = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setToken } = useAuth();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -20,7 +23,14 @@ const SignIn = () => {
     }
     setIsLoading(true);
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const token = await userCredential.user.getIdToken();
+      console.log(token, "SignIn token");
+      setToken(token);
       console.log("User signed in successfully");
     } catch (error) {
       console.error("Error signing in:", error);
@@ -83,6 +93,10 @@ const SignIn = () => {
               "Sign In"
             )}
           </Button>
+        </div>
+
+        <div className="forgot-password">
+          <Link to="/forgotpassword">Forgot Password?</Link>
         </div>
       </Form>
     </div>

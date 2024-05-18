@@ -137,11 +137,13 @@ import { auth } from "../Firebase";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import SignIn from "./SignIn";
+import { useAuth } from "../Store/auth-coontext";
 
 const Authentication = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setToken } = useAuth();
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -211,8 +213,14 @@ const Authentication = () => {
     }
     setIsLoading(true);
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = auth.currentUser;
+      const token = await userCredential.user.getIdToken();
+      setToken(token);
       console.log(user);
       console.log("User Registerd Successfully");
     } catch (error) {
@@ -228,7 +236,6 @@ const Authentication = () => {
     }
   };
 
-  const handleSignIn = () => {};
   return (
     <div className="form-container">
       <Form onSubmit={handleSignUp}>

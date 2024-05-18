@@ -8,6 +8,7 @@ import ContactUs from "./Pages/ContactUs";
 import ProductDetail from "./Component/Body/ProductDetails";
 import Auth from "./Pages/Auth";
 import AuthSignIn from "./Pages/AuthSignIn";
+import ForgotPassword from "./Component/Body/ForgotPassword";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           />
           <Route path="/auth" element={<Auth />} />
           <Route path="/signin" element={<AuthSignIn />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
         </Routes>
       </Router>
     </>
