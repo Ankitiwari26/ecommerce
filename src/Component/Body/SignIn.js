@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Authentication.css";
 import { useAuth } from "../Store/auth-coontext";
 
@@ -14,6 +14,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setToken } = useAuth();
+  const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -32,6 +33,7 @@ const SignIn = () => {
       console.log(token, "SignIn token");
       setToken(token);
       localStorage.setItem("authToken", token);
+      localStorage.setItem("loginTimestamp", Date.now().toString());
       console.log("User signed in successfully");
     } catch (error) {
       console.error("Error signing in:", error);
@@ -41,6 +43,7 @@ const SignIn = () => {
       setEmail("");
       setPassword("");
     }
+    navigate("/store");
   };
 
   return (
