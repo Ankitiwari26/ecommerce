@@ -1,9 +1,11 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import { useAuth } from "../Store/auth-coontext";
+import { useNavigate } from "react-router-dom";
 
 const LogoutButton = () => {
   const { handleSignOut } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
@@ -12,6 +14,7 @@ const LogoutButton = () => {
     } catch (error) {
       console.error("Error signing out:", error);
     }
+    navigate("/signin");
   };
 
   return (
