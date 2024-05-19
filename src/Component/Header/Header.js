@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { useCart } from "../Store/CartProvider";
 import { Link } from "react-router-dom";
+import LogoutButton from "../Body/LogoutButton";
 // import CartContext from "../Store/cart-context";
 
 // const numberOfCartItem = 5;
@@ -54,7 +55,7 @@ function Header() {
               <Nav.Link as={Link} to="/auth">
                 Sign Up
               </Nav.Link>
-
+              <LogoutButton />
               <Button
                 variant="dark"
                 className="cartbutton"
