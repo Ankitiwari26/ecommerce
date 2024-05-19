@@ -31,6 +31,7 @@ const SignIn = () => {
       const token = await userCredential.user.getIdToken();
       console.log(token, "SignIn token");
       setToken(token);
+      localStorage.setItem("authToken", token);
       console.log("User signed in successfully");
     } catch (error) {
       console.error("Error signing in:", error);

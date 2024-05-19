@@ -14,10 +14,12 @@ export const AuthProvider = ({ children }) => {
         setCurrentUser(user);
         user.getIdToken().then((token) => {
           setToken(token);
+          localStorage.setItem("authToken", token);
         });
       } else {
         setCurrentUser(null);
         setToken(null);
+        localStorage.removeItem("authToken");
       }
     });
 
@@ -29,6 +31,7 @@ export const AuthProvider = ({ children }) => {
     await signOut(auth);
     setCurrentUser(null);
     setToken(null);
+    localStorage.removeItem("authToken");
   };
 
   return (
