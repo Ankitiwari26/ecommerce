@@ -9,6 +9,7 @@ import ProductDetail from "./Component/Body/ProductDetails";
 import Auth from "./Pages/Auth";
 import AuthSignIn from "./Pages/AuthSignIn";
 import ForgotPassword from "./Component/Body/ForgotPassword";
+import ProtectedRoute from "./Component/ProtectedRoute";
 
 function App() {
   return (
@@ -16,7 +17,16 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/store" element={<Store />} />
+          {/* <Route path="/store" element={<Store />} /> */}
+          {/* <ProtectedRoute path="/store" element={<Store />} /> */}
+          <Route
+            path="/store"
+            element={
+              <ProtectedRoute>
+                <Store />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route
