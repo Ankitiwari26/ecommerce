@@ -176,7 +176,8 @@ const products = [
 ];
 
 const ProductList = () => {
-  const { addItem } = useCart();
+  const { addToCart } = useCart();
+  console.log(addToCart, "Prateek gandu");
 
   return (
     <div>
@@ -194,7 +195,7 @@ const ProductList = () => {
               <NavLink to={`/product-detail/${index}`}>
                 <Card.Text>Price: ${product.price}</Card.Text>
               </NavLink>
-              <Button variant="primary" onClick={() => addItem(product)}>
+              <Button variant="primary" onClick={() => addToCart(product)}>
                 Add to Cart
               </Button>
             </Card.Body>
